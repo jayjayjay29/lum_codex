@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 💜</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(to bottom, #1a1a2e, #3a0ca3);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* LOGIN */
+#login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 25px;
+    border: none;
+    background: #9d4edd;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* SHAKE */
+.shake { animation: shake 0.4s; }
+@keyframes shake {
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+/* CONTENT */
+#content { display: none; padding: 20px; }
+
+#welcome {
+    font-size: 2em;
+    color: #c77dff;
+}
+
+/* STORY MODE */
+.story {
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.story-box {
+    background: rgba(255,255,255,0.1);
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: auto;
+    backdrop-filter: blur(10px);
+}
+
+/* COUNTDOWN */
+.countdown {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #ffd6ff;
+}
+
+/* GALLERY */
+.gallery {
+    display: none;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 45%;
+    max-width: 200px;
+    margin: 10px;
+    border-radius: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s forwards;
+}
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* HEARTS */
+.heart {
+    position: fixed;
+    bottom: 0;
+    animation: float 6s linear infinite;
+}
+@keyframes float {
+    to { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+    <source src="music1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- LOGIN -->
+<div id="login">
+    <div class="login-box" id="box">
+        <h2>Enter Password 💜</h2>
+        <input type="password" id="pass">
+        <br>
+        <button onclick="check()">Unlock</button>
+        <p id="error" style="color:#ff6b6b;"></p>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div id="content">
+
+<h1 id="welcome"></h1>
+
+<!-- COUNTDOWN -->
+<div class="countdown" id="countdown"></div>
+
+<!-- STORY MODE -->
+<div class="story" onclick="nextStory()">
+    <div class="story-box" id="storyText">
+        Tap to read my message 💌
+    </div>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery" id="gallery">
+    <img src="photo1.jpg.jpg">
+    <img src="photo2.jpg.jpg">
+    <img src="photo3.jpg.jpg">
+    <img src="photo4.jpg.jpg">
+</div>
+
+</div>
+
+<script>
+let step = 0;
+
+let messages = [
+"oh ha. napaka early ng message mo since ganyan yung gusto mooooo!!! na bored ako kaya gumawa ako ng website 💜",
+"Happy 3rd monthsary, my love ❤️",
+"I know this past week hasn’t been easy for us… I hurt you and I’m truly sorry.",
+"I never want you to feel unloved again.",
+"I promise to do better, to love you better, every single day.",
+"Let’s keep choosing each other, okay?",
+"I love you so much DONAT 💜"
+];
+
+function check() {
+    let input = document.getElementById("pass").value;
+    let box = document.getElementById("box");
+
+    if(input === "28") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("content").style.display = "block";
+
+        document.getElementById("music").play();
+
+        typeText("Welcome Donat 💜", "welcome");
+
+        startCountdown();
+
+    } else {
+        document.getElementById("error").innerText = "Wrong password 💔";
+        box.classList.add("shake");
+        setTimeout(()=>box.classList.remove("shake"),400);
+    }
+}
+
+/* STORY MODE */
+function nextStory() {
+    if(step < messages.length) {
+        document.getElementById("storyText").innerHTML = messages[step];
+        step++;
+    } else {
+        document.getElementById("gallery").style.display = "block";
+    }
+}
+
+/* TYPING */
+function typeText(text, id) {
+    let i = 0;
+    function typing() {
+        if (i < text.length) {
+            document.getElementById(id).innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, 50);
+        }
+    }
+    typing();
+}
+
+/* COUNTDOWN */
+function startCountdown() {
+    let next = new Date();
+    next.setMonth(next.getMonth() + 1);
+
+    setInterval(() => {
+        let now = new Date();
+        let diff = next - now;
+
+        let d = Math.floor(diff / (1000*60*60*24));
+        let h = Math.floor((diff/(1000*60*60)) % 24);
+        let m = Math.floor((diff/(1000*60)) % 60);
+
+        document.getElementById("countdown").innerHTML =
+        "Next monthsary with you in: " + d + "d " + h + "h " + m + "m 💜";
+    },1000);
+}
+
+/* HEARTS */
+function hearts() {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💜";
+    heart.style.left = Math.random()*100+"vw";
+    heart.style.fontSize = (Math.random()*20+15)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+}
+setInterval(hearts,300);
+</script>
+
+</body>
+</html>
